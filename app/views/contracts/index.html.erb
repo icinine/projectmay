@@ -1,0 +1,23 @@
+<h1>Current Contracts</h1>
+<hr/>
+
+<% @contracts.each do |contract| %>
+    <div class = "row">
+        <div class = "col-md2">
+            <section class="user_info center">
+                
+            </section>
+            
+        </div>
+        
+        <div class = "col-lg-8 well">
+            <h4><%= link_to contract.desc, " " %></h4>
+            <p><%= contract.region %></p>
+            <p>
+                <span class ='quiet'><small><%= time_ago_in_words(contract.created_at) %> ago</small></span>
+            </p>
+            
+        </div>
+        
+    </div>
+<% end %>
