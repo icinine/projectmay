@@ -3,7 +3,8 @@ require 'test_helper'
 class RecipeTest < ActiveSupport::TestCase
    
    def setup
-       @user = User.create(username:"bob", email:"bob@exampe.com")
+       #User variable declared in test as each time a contract is created it is assigned to a User
+    @user = User.create(username:"bob", email:"bob@exampe.com")
     @contract =@user.contracts.build(desc: "Mathadone", region: "National", value: 100000, saving: 15000, supplier: "Schein", contact:"Shane", dept: "MSP", download: "Yes")    
    end
        
@@ -22,7 +23,7 @@ class RecipeTest < ActiveSupport::TestCase
     end
     
     test "desc should not be too long" do
-        @contract.desc = "a" * 501
+        @contract.desc = "a" * 501 # Desc should be less than 500 characters
         assert_not @contract.valid?
     end
     
