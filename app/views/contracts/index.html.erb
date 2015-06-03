@@ -3,7 +3,7 @@
 
 <% @contracts.each do |contract| %>
     <div class = "row">
-        <div class = "col-md2">
+        <div class = "col-md-2">
             <section class="user_info center">
                 <%= gravatar_for contract.user, size: 100 %>
                 <h5>Username: <%= contract.user.username %></h5>
@@ -12,7 +12,7 @@
         </div>
         
         <div class = "col-lg-8 well">
-            <h4><%= link_to contract.desc, " " %></h4>
+            <h4><%= link_to contract.desc, contract_path(contract) %></h4>
             <p><%= contract.region %></p>
             <p>
                 <span class ='quiet'><small><%= time_ago_in_words(contract.created_at) %> ago</small></span>
@@ -21,4 +21,5 @@
         </div>
         
     </div>
+    <hr/>
 <% end %>
