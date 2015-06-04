@@ -11,6 +11,7 @@ Rails.application.routes.draw do
    get 'contracts/:id', to: 'contracts#show', as: 'contract'
    delete 'contracts/:id', to: 'contracts#destroy'
    
-   #I could have simply used resources :contracts but for learning purposes I am completing as much of this project manually as possible.
+   # While I could have simply used resources :contracts but for learning 
+   # purposes I am completing as much of this project manually as possible.
 
 end
