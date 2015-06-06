@@ -1,7 +1,4 @@
-<p>
-    <h1><%= @contract.desc %></h1>
-    
-</p>
+<%= render 'shared/page_title', title: @contract.desc %>
 
 <div class="row">
     
@@ -13,6 +10,7 @@
     </p>
     </div>
     <div class="col-md-8">
+        <%= link_to 'Edit Contract', edit_contract_path, class: 'btn btn-warning pull-right' %>
         <h3><%= @contract.desc %></h3>
         <div class="well">
             <p>
