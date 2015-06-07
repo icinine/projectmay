@@ -3,7 +3,7 @@
 <div class="row">
     <div class = "col-md-8 col-md-offset-2">
        
-        <%= form_for @contract do |f| %>
+        <%= form_for(@contract, html: { multipart: true }) do |f| %>
             <%= f.label :desc %>
             <%= f.text_field :desc %>
             
@@ -28,7 +28,22 @@
             <%= f.label :download %>
             <%= f.text_field :download %>
             
+            
+            
+            <span class="picture">
+                <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+            </span>
+            
             <%= f.submit(@contract.new_record? ? 'Create Contract' : 'Edit Recipe', class: 'btn btn-success') %>
         <% end %>
     </div>
 </div>
+
+<script type="text/javasript">
+    $('#contract_picture').bind('change', function() {
+        size_in_megabytes = this.files[0].size/1024/1024;
+        if(size_in_megabytes > 5) {
+            alert('Maximum file size is 5MB - please upload a smaller file');
+        }
+    });
+</script> 
