@@ -8,6 +8,9 @@ class Contract < ActiveRecord::Base
     mount_uploader :picture, PictureUploader
     validate :picture_size
     
+    #Sort contracts by updated date
+    default_scope -> { order(updated_at: :desc) }
+    
     def thumbs_up_total
         self.likes.where(like: true).size
     end

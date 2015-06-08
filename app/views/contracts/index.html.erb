@@ -16,7 +16,9 @@
             <h4><%= link_to contract.desc, contract_path(contract) %></h4>
             <p><%= contract.region %></p>
             <p>
-                <span class ='quiet'><small><%= time_ago_in_words(contract.created_at) %> ago</small></span>
+                <span class ='quiet'><small>created: <%= time_ago_in_words(contract.created_at) %> ago</small></span>&nbsp; | &nbsp;
+                <span class ='quiet'><small>updated: <%= time_ago_in_words(contract.updated_at) %> ago</small></span>
+            </p>
             </p>
             <div class="pull-right">
                 <%= link_to like_contract_path(contract, like: true), method: :post do %>
