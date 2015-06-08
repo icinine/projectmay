@@ -13,5 +13,12 @@ Rails.application.routes.draw do
    
    # While I could have simply used resources :contracts but for learning 
    # purposes I am completing as much of this project manually as possible.
-
+   
+   resources :contracts do
+      member do
+         post 'like'
+      end
+   end
+      
+   
 end

@@ -20,7 +20,17 @@
                 <strong>Details:</strong>
             </p>
             <%= @contract.value %>
-            
+            <div class="pull-right">
+                <%= link_to like_contract_path(@contract, like: true), method: :post do %>
+                    <i class="glyphicon glyphicon glyphicon-ok"></i> &nbsp <%= @contract.thumbs_up_total %>
+                    
+                <% end %>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                 <%= link_to like_contract_path(@contract, like: false), method: :post do %>
+                    <i class="glyphicon glyphicon glyphicon-remove"></i> &nbsp <%= @contract.thumbs_down_total %>
+                    
+                <% end %>
+            </div>
         </div>
     </div>
 </div>

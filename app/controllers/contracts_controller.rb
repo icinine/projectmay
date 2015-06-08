@@ -1,7 +1,8 @@
 class ContractsController < ApplicationController
 
     def index
-        @contracts = Contract.all
+        #@contracts = Contract.all.sort_by{like| like.thumbs_up_total}.reverse
+        @contracts = Contract.paginate(page: params[:page], per_page: 4)
     end
 
     def show
@@ -37,6 +38,19 @@ class ContractsController < ApplicationController
             render :edit
         end
     end
+    
+    
+    def like
+      @contract = Contract.find(params[:id])
+      like = Like.create(like: params[:like], user: User.first, contract: @contract)
+      if like.valid?
+          flash[:success] = "Thank you for your input."
+          redirect_to :back
+        else
+          flash[:danger] = "You can only vote once."
+          redirect_to :back
+        end
+     end
     
     private #private params for the create method
         

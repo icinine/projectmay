@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
     has_many :contracts
+    has_many :likes
+    
     before_save { self.email = email.downcase }
     #ensures username is present
     validates :username, presence: true, length: { minimum:3, maximum: 40}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150606163453) do
+ActiveRecord::Schema.define(version: 20150607150518) do
 
   create_table "contracts", force: true do |t|
     t.text     "desc"
@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(version: 20150606163453) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "picture"
+  end
+
+  create_table "likes", force: true do |t|
+    t.boolean  "like"
+    t.integer  "user_id"
+    t.integer  "contract_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
