@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
     has_many :contracts
     has_many :likes
+    has_secure_password
     
     before_save { self.email = email.downcase }
     #ensures username is present
