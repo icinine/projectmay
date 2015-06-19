@@ -9,7 +9,14 @@
     
 </div>
 
-<% @user.contracts.each do |contract| %>
+<div class="row">
+    <div class = "col-md-4 col-md-offset-4 center">
+        <h3><em>Contracts:</em></h3>
+        <%= will_paginate @contracts %>
+        
+    </div>
+</div>
+<% @contracts.each do |contract| %>
 
 <div class="row">
 <div class = "col-lg-6 well col-lg-offset-3">

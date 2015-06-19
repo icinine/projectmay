@@ -37,7 +37,8 @@ def update
 end
 
 def show
-    @user = User.find(params[:id])    
+    @user = User.find(params[:id])
+    @contracts = @user.contracts.paginate(page: params[:page], per_page: 3)
 end
 
 
