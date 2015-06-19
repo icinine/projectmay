@@ -1,0 +1,36 @@
+<%= render 'shared/page_title', title: "User: "  + @user.username %>
+
+<div class="row">
+    
+    <div class="col-md-4 col-md-offset-4 center">
+        <%= gravatar_for @user, size: 200 %>
+    <hr/>
+    </div>
+    
+</div>
+
+<% @user.contracts.each do |contract| %>
+
+<div class="row">
+<div class = "col-lg-6 well col-lg-offset-3">
+            <h4><%= link_to contract.desc, contract_path(contract) %></h4>
+            <p><%= contract.region %></p>
+            <p>
+                <span class ='quiet'><small>created: <%= time_ago_in_words(contract.created_at) %> ago</small></span>&nbsp; | &nbsp;
+                <span class ='quiet'><small>updated: <%= time_ago_in_words(contract.updated_at) %> ago</small></span>
+            </p>
+            </p>
+            <div class="pull-right">
+                <%= link_to like_contract_path(contract, like: true), method: :post do %>
+                    <i class="glyphicon glyphicon glyphicon-ok"></i> &nbsp <%= contract.thumbs_up_total %>
+                    
+                <% end %>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                 <%= link_to like_contract_path(contract, like: false), method: :post do %>
+                    <i class="glyphicon glyphicon glyphicon-remove"></i> &nbsp <%= contract.thumbs_down_total %>
+                    
+                <% end %>
+            </div>
+         </div>
+     </div>
+ <% end %>
