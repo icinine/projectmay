@@ -10,10 +10,18 @@
         <div class='nav_item'>
         	<%= link_to "link 2", "", class: "btn btn-default btn-warning" %>
         </div>
-       
+       <% if logged_in? %>
         <div class='nav_item'>
         	<%= link_to "New Contract", new_contract_path, class: "btn btn-default btn-warning" %>
         </div>
+         <div class='nav_item'>
+        	<%= link_to "Logout", logout_path, class: "btn btn-default btn-danger" %>
+        </div>
+        <% else %>
+        <div class='nav_item'>
+        	<%= link_to "Login", login_path, class: "btn btn-default btn-warning" %>
+        </div>
+        <% end %>
     
     </div>
   

@@ -12,7 +12,8 @@ end
 def create
     @user = User.new(user_params)
     if @user.save
-        flash[:success] = "Congratulations! New User Created."    
+        flash[:success] = "Congratulations! New User Created."  
+        session[:user_id] = @user.id
         redirect_to contracts_path
     else
         render 'new'
