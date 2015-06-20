@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+    before_action :set_user, only [:edit, :update, :show]
+    before_action :require_same_user, only [:edit, :update]
+    
 
 def index
    @users = User.paginate(page: params[:page], per_page: 3)
@@ -22,15 +25,15 @@ def create
 end
 
 def edit
-    @user = User.find(params[:id])
+    
 end
 
 
 def update
-    @user = User.find(params[:id])
+ 
     if @user.update(user_params)
         flash[:success] = "Your profile has been updated successfully."
-        redirect_to contracts_path
+        redirect_to user_path(@user)
     else
         render 'edit'    
     end
@@ -38,15 +41,27 @@ def update
 end
 
 def show
-    @user = User.find(params[:id])
+  
     @contracts = @user.contracts.paginate(page: params[:page], per_page: 3)
 end
 
 
 private
 
-def user_params
-   params.require(:user).permit(:username, :email, :password) 
-end
+    def user_params
+       params.require(:user).permit(:username, :email, :password) 
+    end
+    
+    def set_user
+         @user = User.find(params[:id])
+    end
+    
+    def require_same_user
+        if current_user != @user
+            flash[:danger] = "Comuter says no"
+            redirect_to root_path
+        end
+    end
+    
     
 end
