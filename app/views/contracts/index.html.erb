@@ -1,4 +1,14 @@
 <%= render 'shared/page_title', title: 'All Contracts' %>
+
+<ul class ="nav nav-tabs">
+    <li class="active">
+        <%= link_to 'Contracts', contracts_path %>
+    </li>
+    <li>
+        <%= link_to 'Users', users_path %>
+    </li>
+    
+</ul>
 <hr/>
 <%= will_paginate %>
 

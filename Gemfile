@@ -57,3 +57,4 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'fog', '1.23.0'
