@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150608185731) do
+ActiveRecord::Schema.define(version: 20150623170743) do
+
+  create_table "agreement_types", force: true do |t|
+    t.string "doctype"
+  end
+
+  create_table "contract_agreements", force: true do |t|
+    t.integer "agreement_type_id"
+    t.integer "contract_id"
+  end
+
+  create_table "contract_regions", force: true do |t|
+    t.integer "region_id"
+    t.integer "contract_id"
+  end
 
   create_table "contracts", force: true do |t|
     t.text     "desc"
@@ -34,6 +48,10 @@ ActiveRecord::Schema.define(version: 20150608185731) do
     t.integer  "contract_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "regions", force: true do |t|
+    t.string "name"
   end
 
   create_table "users", force: true do |t|

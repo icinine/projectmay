@@ -1,6 +1,10 @@
 class Contract < ActiveRecord::Base
     belongs_to :user
     has_many :likes
+    has_many :contract_agreements
+    has_many :agreement_types, through: :contract_agreements
+    has_many :contract_regions
+    has_many :regions, through: :contract_regions
     
     validates :user_id, presence: true
     #validates the Contract model tests in contract_test.rb
