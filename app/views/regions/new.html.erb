@@ -1,0 +1,16 @@
+<%= render 'shared/page_title', title: 'Create a new Region' %>
+
+<%= render 'shared/errors', obj: @region %>
+
+<div class="row">
+    <div class = "col-md-8 col-md-offset-2">
+       
+        <%= form_for @region do |f| %>
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+            
+           
+            <%= f.submit 'Create Region', class: 'btn btn-success' %>
+        <% end %>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<%= render 'shared/errors', obj: @agreement_type %>
+
+<div class="row">
+    <div class = "col-md-8 col-md-offset-2">
+       
+        <%= form_for @agreement_type do |f| %>
+            <%= f.label :doctype %>
+            <%= f.text_field :doctype %>
+     
+            <%= f.submit 'Create Agreement Type', class: 'btn btn-success' %>
+        <% end %>
+    </div>
+</div>
