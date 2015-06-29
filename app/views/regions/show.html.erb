@@ -1,4 +1,4 @@
-<%= render 'shared/page_title', title: 'All Contracts' %>
+<%= render 'shared/page_title', title: "Contracts for:" + @region.name %>
 
 <ul class ="nav nav-tabs">
     <li class="active">
@@ -10,9 +10,9 @@
     
 </ul>
 <hr/>
-<%= will_paginate %>
+<%= will_paginate @contracts %>
 
-<% @contracts.each do |contract| %>
+<% @region.contracts.each do |contract| %>
     <div class = "row">
         <div class = "col-md-2">
             <section class="user_info center">
@@ -53,4 +53,4 @@
     <hr/>
 <% end %>
 
-<%= will_paginate %>
+<%= will_paginate @contracts %>

@@ -1,5 +1,12 @@
 class AgreementTypesController < ApplicationController
    
+   def show
+      @agreement_type = AgreementType.find(params[:id])
+      @contracts  =@agreement_type.contracts.paginate(page: params[:page], per_page: 4)
+      
+   end
+   
+   
    def new
         @agreement_type = AgreementType.new
    end
