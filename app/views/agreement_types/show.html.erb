@@ -1,5 +1,4 @@
-<%= render 'shared/page_title', title: "Contracts for:" + @agreement_type.doctype %>
-
+<%= render 'shared/page_title', title: "Contracts listed as: " + @agreement_type.name %>
 <ul class ="nav nav-tabs">
     <li class="active">
         <%= link_to 'Contracts', contracts_path %>

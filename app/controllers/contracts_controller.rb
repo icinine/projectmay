@@ -1,6 +1,7 @@
 class ContractsController < ApplicationController
     before_action :set_contract, only: [:edit, :update, :show, :like]
-    before_action :require_user, except: [:show, :index]
+    before_action :require_user, except: [:show, :index, :like]
+    before_action :require_user_like, only: [:like]
     before_action :require_same_user, only: [:edit, :update]
     
     
@@ -73,5 +74,13 @@ class ContractsController < ApplicationController
                 redirect_to contracts_path
             end
         end
+        
+        
+         def require_user_like
+            if !logged_in?
+              flash[:danger] = "You must be logged in to perform that action"
+              redirect_to :back
+            end
+          end
     
 end

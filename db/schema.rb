@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623170743) do
+ActiveRecord::Schema.define(version: 20150630183156) do
 
   create_table "agreement_types", force: true do |t|
-    t.string "doctype"
+    t.string "name"
   end
 
   create_table "contract_agreements", force: true do |t|
