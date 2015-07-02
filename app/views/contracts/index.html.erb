@@ -25,8 +25,12 @@
         <div class = "col-lg-6 well">
             <h4><%= link_to contract.desc, contract_path(contract) %></h4>
             <p><%= contract.region %></p>
+            <% if contract.agreement_types.any? %>
             <p><b>Agreement Type: </b><%= render contract.agreement_types %></p>
+            <% end %>
+            <% if contract.regions.any? %>
             <p><b>Region(s): </b><%= render contract.regions %></p>
+            <% end %>
             <p>
                 <span class ='quiet'><small>created: <%= time_ago_in_words(contract.created_at) %> ago</small></span>&nbsp; | &nbsp;
                 <span class ='quiet'><small>updated: <%= time_ago_in_words(contract.updated_at) %> ago</small></span>

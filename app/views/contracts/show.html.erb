@@ -18,8 +18,12 @@
             <%= image_tag(@contract.picture.url, class: "gravatar") if @contract.picture? %>
         </div>
         <div class="well">
+            <% if @contract.agreement_types.any? %>
              <p><b>Agreement Type: </b><%= render @contract.agreement_types %></p>
+             <% end %>
+              <% if @contract.regions.any? %>
             <p><b>Region(s): </b><%= render @contract.regions %></p>
+            <% end %>
             <p>
                 <strong>Details:</strong>
             </p>

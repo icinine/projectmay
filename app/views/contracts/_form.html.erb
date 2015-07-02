@@ -30,13 +30,13 @@
             
             <strong>Regions:</strong>
             <%= f.collection_check_boxes :region_ids, Region.all, :id, :name do |cb| %>
-            <% cb.label(class: "checkbox-inline") {cb.check_box(class: "checkbox") + cb.text} %>
+            <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
             <% end %>
             <br>   
             
             <strong>Agreement Types: </strong>
             <%= f.collection_check_boxes :agreement_type_ids, AgreementType.all, :id, :name do |cba| %>
-            <% cba.label(class: "checkbox-inline") {cba.check_box(class: "checkbox") + cba.text} %>
+            <% cba.label(class: "checkbox-inline input_checkbox") {cba.check_box(class: "checkbox") + cba.text} %>
             <% end %>
             <br><br>
             

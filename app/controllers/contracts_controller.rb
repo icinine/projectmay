@@ -60,7 +60,7 @@ class ContractsController < ApplicationController
     private #private params for the create method
         
         def contract_params
-            params.require(:contract).permit(:desc, :region, :value, :saving, :supplier, :contact, :dept, :download, :picture)
+            params.require(:contract).permit(:desc, :region, :value, :saving, :supplier, :contact, :dept, :download, :picture, agreement_type_ids: [], region_ids: [])
         end
     
         def set_contract
@@ -81,6 +81,6 @@ class ContractsController < ApplicationController
               flash[:danger] = "You must be logged in to perform that action"
               redirect_to :back
             end
-          end
+         end
     
 end
