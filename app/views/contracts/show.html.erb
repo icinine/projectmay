@@ -10,7 +10,7 @@
     </p>
     </div>
     <div class="col-md-8">
-        <% if logged_in? and @contract.user == current_user %>
+        <% if logged_in? and (@contract.user == current_user || current_user.admin?)  %>
         <%= link_to 'Edit Contract', edit_contract_path, class: 'btn btn-warning pull-right' %>
        <% end %>
         <h3><%= @contract.desc %></h3>

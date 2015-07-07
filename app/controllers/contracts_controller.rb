@@ -69,7 +69,7 @@ class ContractsController < ApplicationController
         
         
         def require_same_user
-            if current_user != @contract.user
+            if current_user != @contract.user and !current_user.admin?
                 flash[:danger] = "You can only edit your own contracts"
                 redirect_to contracts_path
             end
