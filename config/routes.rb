@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
    root 'pages#home'
    
-   resources :users, except: [:new]
+   resources :users, except: [:new, :destroy]
    
    get '/register', to: 'users#new'
    

@@ -3,6 +3,7 @@ class ContractsController < ApplicationController
     before_action :require_user, except: [:show, :index, :like]
     before_action :require_user_like, only: [:like]
     before_action :require_same_user, only: [:edit, :update]
+    before_action :admin_user, only: :destroy
     
     
     def index
@@ -48,14 +49,20 @@ class ContractsController < ApplicationController
     def like
      
       like = Like.create(like: params[:like], user: current_user, contract: @contract)
-      if like.valid?
+        if like.valid?
           flash[:success] = "Thank you for your input."
           redirect_to :back
         else
           flash[:danger] = "You can only vote once."
           redirect_to :back
         end
-     end
+    end
+    
+    def destroy
+       Contract.find(params[:id]).destroy 
+       flash[:success] = "Contract Deleted"
+       redirect_to contracts_path
+    end
     
     private #private params for the create method
         
@@ -81,6 +88,10 @@ class ContractsController < ApplicationController
               flash[:danger] = "You must be logged in to perform that action"
               redirect_to :back
             end
+         end
+         
+         def admin_user
+            redirect_to contracts_path unless current_user.admin? 
          end
     
 end

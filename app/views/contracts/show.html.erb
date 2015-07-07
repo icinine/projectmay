@@ -13,6 +13,9 @@
         <% if logged_in? and (@contract.user == current_user || current_user.admin?)  %>
         <%= link_to 'Edit Contract', edit_contract_path, class: 'btn btn-warning pull-right' %>
        <% end %>
+       <% if logged_in? and current_user.admin? %>
+           <%= link_to "[Delete Contract]", @contract, method: :delete, data: { confirm: "Are you sure?" } %>
+       <% end %>
         <h3><%= @contract.desc %></h3>
         <div class="show_contract">
             <%= image_tag(@contract.picture.url, class: "gravatar") if @contract.picture? %>

@@ -1,9 +1,9 @@
 class Contract < ActiveRecord::Base
     belongs_to :user
-    has_many :likes
-    has_many :contract_agreements
+    has_many :likes, dependent: :destroy
+    has_many :contract_agreements, dependent: :destroy
     has_many :agreement_types, through: :contract_agreements
-    has_many :contract_regions
+    has_many :contract_regions, dependent: :destroy
     has_many :regions, through: :contract_regions
     
     validates :user_id, presence: true
