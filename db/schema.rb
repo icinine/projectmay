@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711101345) do
+ActiveRecord::Schema.define(version: 20150711103857) do
 
   create_table "agreement_types", force: true do |t|
     t.string "name"
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 20150711101345) do
 
   create_table "contracts", force: true do |t|
     t.text     "desc"
-    t.string   "region"
     t.integer  "value"
     t.integer  "saving"
     t.string   "contact"
@@ -40,6 +39,7 @@ ActiveRecord::Schema.define(version: 20150711101345) do
     t.string   "picture"
     t.integer  "dept_id"
     t.integer  "supplier_id"
+    t.string   "region"
   end
 
   create_table "depts", force: true do |t|
