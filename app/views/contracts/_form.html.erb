@@ -17,9 +17,14 @@
             
             <%= f.label :saving %>
             <%= f.number_field :saving %>
+           
             
-            <%= f.label :supplier %>
-            <%= f.text_field :supplier %>
+            <div class = 'control-group'>
+                <%= f.label :supplier, class: 'control-label' %>
+                <div class="controls">
+                    <%= collection_select( :contract, :supplier_id, Supplier.all, :id, :name, {}, { :multiple => false } ) %>
+                </div>
+             </div>
             
             <%= f.label :contact %>
             <%= f.text_field :contact %>
