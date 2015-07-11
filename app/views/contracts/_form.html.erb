@@ -10,6 +10,8 @@
             <%= f.label :region %>
             <%= f.text_field :region %>
             
+            
+            
             <%= f.label :value %>
             <%= f.number_field :value %>
             
@@ -21,9 +23,14 @@
             
             <%= f.label :contact %>
             <%= f.text_field :contact %>
+          
             
-            <%= f.label :dept %>
-            <%= f.text_field :dept %>
+             <div class = 'control-group'>
+                <%= f.label :dept, class: 'control-label' %>
+                <div class="controls">
+                    <%= collection_select( :contract, :dept_id, Dept.all, :id, :name, {}, { :multiple => false } ) %>
+                </div>
+             </div>
             
             <%= f.label :download %>
             <%= f.text_field :download %>

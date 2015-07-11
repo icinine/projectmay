@@ -1,5 +1,6 @@
 class Contract < ActiveRecord::Base
     belongs_to :user
+    belongs_to :dept
     has_many :likes, dependent: :destroy
     has_many :contract_agreements, dependent: :destroy
     has_many :agreement_types, through: :contract_agreements

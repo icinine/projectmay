@@ -16,7 +16,7 @@
        <% if logged_in? and current_user.admin? %>
            <%= link_to "[Delete Contract]", @contract, method: :delete, data: { confirm: "Are you sure?" } %>
        <% end %>
-        <h3><%= @contract.desc %></h3>
+        <h3>Title: <%= @contract.desc %></h3>
         <div class="show_contract">
             <%= image_tag(@contract.picture.url, class: "gravatar") if @contract.picture? %>
         </div>
@@ -28,9 +28,39 @@
             <p><b>Region(s): </b><%= render @contract.regions %></p>
             <% end %>
             <p>
-                <strong>Details:</strong>
+             <strong>Department:</strong>
+            </p>
+            
+            <%= @contract.dept.name %>
+            <p>
+            <p>
+                <strong>Contract Value: &euro;</strong>
             </p>
             <%= @contract.value %>
+          
+            <p>
+             <strong>Savings: &euro;</strong>
+            </p>
+            
+            <%= @contract.saving %>
+            <p>
+                <strong>Supplier:</strong>
+            </p>
+            
+            <%= @contract.supplier %>
+            
+           <p>
+                <strong>Download Contract:</strong>
+            </p>
+            
+            <%= @contract.download %>
+            
+             <p>
+                <strong>Contact Person:</strong>
+            </p>
+            
+            <%= @contract.user.username %>
+           
             <div class="pull-right">
                 <%= link_to like_contract_path(@contract, like: true), method: :post do %>
                     <i class="glyphicon glyphicon glyphicon-ok"></i> &nbsp <%= @contract.thumbs_up_total %>
