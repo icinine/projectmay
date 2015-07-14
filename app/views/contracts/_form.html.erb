@@ -35,6 +35,10 @@
             <%= f.label :download %>
             <%= f.text_field :download %>
             
+
+            
+     
+            
             <strong>Regions:</strong>
             <%= f.collection_check_boxes :region_ids, Region.all, :id, :name do |cb| %>
             <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
@@ -50,6 +54,10 @@
             <span class="picture">
                 <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
             </span>
+            
+             
+            
+       
             
             <%= f.submit(@contract.new_record? ? 'Create Contract' : 'Edit Recipe', class: 'btn btn-success') %>
         <% end %>

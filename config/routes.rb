@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'document/index'
+
+  get 'document/new'
+
+  get 'document/create'
+
+  get 'document/destroy'
+
   resources :suppliers
 
   resources :depts
@@ -19,7 +27,10 @@ Rails.application.routes.draw do
       end
    end
    
-   
+   Nciapp::Application.routes.draw do
+  resources :documents, only: [:index, :new, :create, :destroy]
+ 
+end
    
    #get '/contracts', to: 'contracts#index'
    #get '/contracts/new', to: 'contracts#new', as: 'new_contract'
