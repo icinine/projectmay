@@ -6,7 +6,7 @@ $navbar-default-color: $light-orange;
 @import "bootstrap";
 
 body{
-padding-top:80px;
+padding-top:110px;
 }
 
 
@@ -43,6 +43,7 @@ text-transform: uppercase;
 letter-spacing: -1px;
 padding-top: 9px;
 font-weight:bold;
+
 }
 
 #logo:hover{
@@ -78,6 +79,8 @@ margin-top: 20px;
 margin-top:25px;
 border-top:1px solid #eaeaea;
 color: #666;
+background: #333;
+padding-bottom: 30px;
 }
 
 .user_info{
