@@ -11,20 +11,37 @@
 </ul>
 
 <div class ="row">
+<table class="table table-hover">
+    
+    <thead>
+        <tr>
+            <th>Avatar</th>
+            <th>Username</th>
+            <th>Email</th>
+            
+        </tr>
+        
+    </thead>
+    
+    <tbody>
+        <% @users.each do |user| %>
+            <tr>
+                <td> <%= link_to gravatar_for(user, size: 80), user_path(user) %></td>
+                <td><%= user.username %></td>
+                <td><%= user.email %></td>
+                
+            </tr>
+        
+        <% end %>
+        
+    </tbody>
+    
+</table>
+</div>
+
+<div class ="row">
     <div class="col-md-4 col-md-offset-4 center">
         <%= will_paginate %>
         
     </div>
 </div>
-
-<% @users.each do |user| %>
-    <div class ="row">
-        <div class="col-md-4 col-md-offset-4 center">
-          <%= link_to gravatar_for(user, size: 200), user_path(user) %>
-          <p>
-              <h5>User Name: <%= user.username %> </h5>
-          </p>
-    </div>
-</div>
-
-<% end %>
