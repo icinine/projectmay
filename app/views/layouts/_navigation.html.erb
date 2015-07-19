@@ -5,8 +5,7 @@
     	<%= image_tag("/Logo_Design_Templates_Pack_1.png", :alt => "logo") %>
     	</div>
     	<div class="nav-item">
-    	    <%= link_to 'Home', root_path, class: 'btn btn-default btn-success' %>
-    	    
+    	<%= link_to 'Home', root_path, class: 'btn btn-default btn-success' %>
     	</div>
     	
     
@@ -52,6 +51,7 @@
                 </ul>
             </li>
         </ul>
+        
          <% if logged_in? and current_user.admin? %>
           <div class='nav_item'>
         	<%= link_to "New Department", new_dept_path, class: "btn btn-default btn-warning" %>

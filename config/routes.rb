@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'templates/index'
+
+  get 'templates/new'
+
+  get 'templates/create'
+
+  get 'templates/destroy'
+
   get 'document/index'
 
   get 'document/new'
@@ -27,10 +35,20 @@ Rails.application.routes.draw do
       end
    end
    
-   Nciapp::Application.routes.draw do
+  Nciapp::Application.routes.draw do
+  get 'templates/index'
+
+  get 'templates/new'
+
+  get 'templates/create'
+
+  get 'templates/destroy'
+
   resources :documents, only: [:index, :new, :create, :destroy]
  
 end
+
+resources :templates, only: [:index, :new, :create, :destroy]
    
    #get '/contracts', to: 'contracts#index'
    #get '/contracts/new', to: 'contracts#new', as: 'new_contract'
