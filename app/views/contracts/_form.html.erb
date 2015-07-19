@@ -31,23 +31,21 @@
                     <%= collection_select( :contract, :dept_id, Dept.all, :id, :name, {}, { :multiple => false } ) %>
                 </div>
              </div>
-            
-            <%= f.label :download %>
-            <%= f.text_field :download %>
-            
+         
 
             <strong>Regions:</strong>
             <%= f.collection_check_boxes :region_ids, Region.all, :id, :name do |cb| %>
-            <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+            <% cb.label(class: "checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
             <% end %>
             <br>   
             
             <strong>Agreement Types: </strong>
             <%= f.collection_check_boxes :agreement_type_ids, AgreementType.all, :id, :name do |cba| %>
-            <% cba.label(class: "checkbox-inline input_checkbox") {cba.check_box(class: "checkbox") + cba.text} %>
+            <% cba.label(class: "checkbox") {cba.check_box(class: "checkbox") + cba.text} %>
             <% end %>
             <br><br>
             
+            <%= f.label :image %>
             <span class="picture">
                 <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
             </span>
