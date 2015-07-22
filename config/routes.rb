@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+    
+    root 'pages#home'
 
   get 'templates/index'
 
@@ -20,11 +22,9 @@ Rails.application.routes.draw do
 
   resources :depts
 
-   root 'pages#home'
+  resources :users, except: [:new, :destroy]
    
-   resources :users, except: [:new, :destroy]
-   
-   get '/register', to: 'users#new'
+  get '/register', to: 'users#new'
    
    resources :agreement_types, only: [:new, :create, :show]
    resources :regions, only: [:new, :create, :show]

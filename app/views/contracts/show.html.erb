@@ -14,7 +14,7 @@
         <%= link_to 'Edit Contract', edit_contract_path, class: 'btn btn-warning pull-right' %>
        <% end %>
        <% if logged_in? and current_user.admin? %>
-           <%= link_to "[Delete Contract]", @contract, method: :delete, data: { confirm: "Are you sure?" } %>
+           <%= link_to "Delete Contract", @contract, class: 'btn btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
        <% end %>
         <h3>Title: <%= @contract.desc %></h3>
         <div class="show_contract">
@@ -72,4 +72,4 @@
     </div>
 </div>
 
-<h5><%= link_to 'Return to Contracts Listing', contracts_path, class: "btn btn-warning btn-small" %></h5>
+<h5><%= link_to 'Return to Contracts Listing', contracts_path, class: "btn btn-info btn-small" %></h5>

@@ -49,7 +49,7 @@ end
 private
 
     def user_params
-       params.require(:user).permit(:username, :email, :password) 
+       params.require(:user).permit(:username, :email, :password, :dept) 
     end
     
     def set_user
@@ -58,7 +58,7 @@ private
     
     def require_same_user
         if current_user != @user
-            flash[:danger] = "Comuter says no"
+            flash[:danger] = "Computer says no"
             redirect_to root_path
         end
     end

@@ -12,6 +12,9 @@
 <hr/>
 <%= will_paginate %>
 
+<%= bar_chart Contract.group(:desc).sum(:saving) %>
+
+
 <% @contracts.each do |contract| %>
     <div class = "row">
         <div class = "col-md-2">
@@ -37,6 +40,8 @@
             </p>
             </p>
             <div class="pull-right">
+                
+                
                 <%= link_to like_contract_path(contract, like: true), method: :post do %>
                     <i class="glyphicon glyphicon glyphicon-ok"></i> &nbsp <%= contract.thumbs_up_total %>
                     
