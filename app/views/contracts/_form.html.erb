@@ -47,7 +47,7 @@
             
             <%= f.label :image %>
             <span class="picture">
-                <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+                <%= f.file_field :picture, class: 'form-control', accept: 'image/jpeg,image/gif,image/png' %>
             </span>
            
 
@@ -58,7 +58,7 @@
             
        
             
-            <%= f.submit(@contract.new_record? ? 'Create Contract' : 'Edit Recipe', class: 'btn btn-success') %>
+            <%= f.submit(@contract.new_record? ? 'Create Contract' : 'Edit Contract', class: 'btn btn-success') %>
         <% end %>
     </div>
 </div>

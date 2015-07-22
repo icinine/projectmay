@@ -41,10 +41,14 @@ def update
 end
 
 def show
-  
-    @contracts = @user.contracts.paginate(page: params[:page], per_page: 3)
+      @contracts = @user.contracts.paginate(page: params[:page], per_page: 3)
 end
 
+    def destroy
+       User.find(params[:id]).destroy 
+       flash[:success] = "User Deleted"
+       redirect_to contracts_path
+    end
 
 private
 

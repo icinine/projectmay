@@ -18,7 +18,9 @@
             <th>Avatar</th>
             <th>Username</th>
             <th>Email</th>
-            
+             <% if logged_in? and current_user.admin? %>
+            <th>Delete User</th>
+            <% end %>
         </tr>
         
     </thead>
@@ -29,7 +31,9 @@
                 <td> <%= link_to gravatar_for(user, size: 80), user_path(user) %></td>
                 <td><%= user.username %></td>
                 <td><%= user.email %></td>
-                
+                <% if logged_in? and current_user.admin? %>
+                <td><%= link_to 'Destroy', user, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+                <% end %>
             </tr>
         
         <% end %>

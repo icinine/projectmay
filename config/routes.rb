@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   resources :depts
 
-  resources :users, except: [:new, :destroy]
+  resources :users, except: [:new]
    
   get '/register', to: 'users#new'
    
