@@ -10,7 +10,9 @@ padding-top:110px;
 }
 
 
-
+.navbar{
+    background: url('/EhYKSby.png');
+}
 h1,h2,h3,h4 {
 line-height:1;
 }
@@ -29,6 +31,15 @@ color: #363636;
 margin-bottom: 30px;
 text-align: center;
 
+}
+
+p {
+    	font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 20px;
 }
 
 
@@ -126,4 +137,75 @@ span.picture{
 
 .show.contract{
     margin: 10px 10px 10px 10px;
+}
+
+.jumbotron {
+    margin-top: 30px;
+    background: #fff url('/contract-details-on-the-go.jpg') no-repeat;
+    width:100%;
+    height:320px;
+    padding-top:60px;
+    
+}
+
+.jbutton{
+    margin-left: auto;
+    margin-right: auto;
+   
+    
+}
+
+#mid_block{
+    width: 100%;
+    height: 300px;
+    overflow: none;
+    margin-bottom: 30px;
+}
+
+#inner_left{
+    width: 60%;
+    height: 290px;
+    overflow: none;
+    float: left;
+    
+}
+
+#inner_left h1 {
+   
+	font-family: Helvetica;
+	font-size: 28px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 18px;
+
+}
+
+
+#inner_left p {
+	font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+#inner_right{
+    width: 36%;
+    height: 290px;
+    overflow: none;
+    float: right;
+    margin-left: 2%;
+    background: #fff url('/Unfinished-Business-3.jpg') no-repeat;
+}
+
+.foothead {
+    font-family: Helvetica;
+	font-size: 28px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 18px;
+	color: #fff;
 }

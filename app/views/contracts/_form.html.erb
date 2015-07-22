@@ -5,18 +5,19 @@
        
         <%= form_for(@contract, html: { multipart: true }) do |f| %>
             <%= f.label :desc %>
-            <%= f.text_field :desc %>
+            <%= f.text_field :desc, class: 'form-control' %>
          
             <%= f.label :value %>
-            <%= f.number_field :value %>
+            <%= f.number_field :value, class: 'form-control' %>
+            
             
             <%= f.label :saving %>
-            <%= f.number_field :saving %>
-           
+            <%= f.number_field :saving, class: 'form-control' %>
+        
             
-            <div class = 'control-group'>
+            <div class = 'form-group'>
                 <%= f.label :supplier, class: 'control-label' %>
-                <div class="controls">
+                <div class="form-control">
                     <%= collection_select( :contract, :supplier_id, Supplier.all, :id, :name, {}, { :multiple => false } ) %>
                 </div>
              </div>
@@ -26,11 +27,11 @@
             
              <div class = 'control-group'>
                 <%= f.label :dept, class: 'control-label' %>
-                <div class="controls">
+                <div class="form-control">
                     <%= collection_select( :contract, :dept_id, Dept.all, :id, :name, {}, { :multiple => false } ) %>
                 </div>
              </div>
-         
+         <br/>
 
             <strong>Regions:</strong>
             <%= f.collection_check_boxes :region_ids, Region.all, :id, :name do |cb| %>
@@ -51,7 +52,7 @@
            
 
             <%= f.label :attachment %>
-               <%= f.file_field :attachment %>
+               <%= f.file_field :attachment, class: 'form-control' %>
   
 
             

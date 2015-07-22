@@ -4,15 +4,16 @@
     	<div id="logo">
     	<%= image_tag("/Logo_Design_Templates_Pack_1.png", :alt => "logo") %>
     	</div>
-    	<div class="nav-item">
-    	<%= link_to 'Home', root_path, class: 'btn btn-default btn-success' %>
-    	</div>
+    	
+    	<ul class='nav_ul_item'>
+    	<li><%= link_to 'Home', root_path, class: 'btn btn-default btn-primary' %></li>
+    	</ul>
     	
     
         <ul class='nav_ul_item'>
             
         	<li class="dropdown">
-                <%= link_to '#', class: 'btn btn-default btn-danger dropdown-toggle', 'data-toggle' => 'dropdown' do %>
+                <%= link_to '#', class: 'btn btn-default btn-primary dropdown-toggle', 'data-toggle' => 'dropdown' do %>
                     Agreements <b class="caret"></b>
                 <% end %>
                 <ul class="dropdown-menu">
@@ -33,7 +34,7 @@
        
          <ul class='nav_ul_item'>
         	<li class="dropdown">
-            <%= link_to "#", class: "btn btn-default border-blue dropdown-toggle", "data-toggle" => "dropdown" do %>
+            <%= link_to "#", class: "btn btn-default btn-primary border-blue dropdown-toggle", "data-toggle" => "dropdown" do %>
                     Regions <b class="caret"></b>
                 <% end %>
                 <ul class="dropdown-menu">
@@ -54,18 +55,18 @@
         
          <% if logged_in? and current_user.admin? %>
           <div class='nav_item'>
-        	<%= link_to "New Department", new_dept_path, class: "btn btn-default btn-warning" %>
+        	<%= link_to "New Department", new_dept_path, class: "btn btn-default btn-primary" %>
         </div>
          <% end %>
        <% if logged_in? %>
         <div class='nav_item'>
-        	<%= link_to "New Contract", new_contract_path, class: "btn btn-default btn-warning" %>
+        	<%= link_to "New Contract", new_contract_path, class: "btn btn-default btn-primary" %>
         </div>
         
         
         <ul class="nav_item">
             <li class="dropdown">
-                <%= link_to '#', class: 'btn btn-default btn-danger dropdown-toggle', 'data-toggle' => 'dropdown' do %>
+                <%= link_to '#', class: 'btn btn-default btn-primary dropdown-toggle', 'data-toggle' => 'dropdown' do %>
                     <%= current_user.username %> <b class="caret"></b>
                 <% end %>
                 <ul class="dropdown-menu">
@@ -77,16 +78,16 @@
             </li>
         </ul>
         <% else %>
-        <div class="nav_item">
+        
+           <div class="nav_item">
             <%= link_to 'Login', login_path, class: 'btn btn-default btn-success' %>
             
         </div>
         
-        
-        <% end %>
+          <% end %>
         
     	
     
     </div>
-  
+
 </header>
