@@ -20,6 +20,17 @@ class Contract < ActiveRecord::Base
     #Sort contracts by updated date
     default_scope -> { order(updated_at: :desc) }
     
+    
+    
+#    def self.searchy(searchy)
+#     	if searchy       
+#    	where("desc like ?", "%#{searchy}%")
+#        else
+#    		all
+#    	end
+#    end
+    
+    
     def thumbs_up_total
         self.likes.where(like: true).size
     end

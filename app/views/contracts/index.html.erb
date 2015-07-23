@@ -10,13 +10,24 @@
     
 </ul>
 <hr/>
-<%= will_paginate %>
+
 
 <h3>Value of Each Contract</h3>
 <%= bar_chart Contract.group(:desc).sum(:value) %>
-<%= @savings %>
+<br>
+<div id="stat_wrap">
+    <div id="inner1"><h1>Total Savings: <br>&euro;<%= @savings %></h1></div>
+    <div id="inner2"><h1>Total Value:<br>&euro;<%= @value %></h1></div>
+    <div id="inner3"><%= pie_chart Contract.group(:value).count %></div>
+    
+</div>
+
+
+<h1>Contract Listing</h1>
+
 
 <% @contracts.each do |contract| %>
+
     <div class = "row">
         <div class = "col-md-2">
             <section class="user_info center">
@@ -64,3 +75,4 @@
 <% end %>
 
 <%= will_paginate %>
+

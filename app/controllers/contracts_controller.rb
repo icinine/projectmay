@@ -9,8 +9,15 @@ class ContractsController < ApplicationController
     def index
         #@contracts = Contract.all.sort_by{like| like.thumbs_up_total}.reverse
         @contracts = Contract.paginate(page: params[:page], per_page: 4)
+        #@searchy = Contract.searchy(params[:searchy])
+       #Calculate contract savings
         @savo = Contract.all
         @savings = @savo.sum(:saving)
+        
+    #Calculate value of contract on system
+        @value = @savo.sum(:value)
+        
+        
     end
 
     def show
