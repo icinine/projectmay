@@ -14,7 +14,7 @@
 
 <h3>Value of Each Contract</h3>
 <%= bar_chart Contract.group(:desc).sum(:value) %>
-
+<%= @savings %>
 
 <% @contracts.each do |contract| %>
     <div class = "row">
