@@ -29,6 +29,11 @@ class Contract < ActiveRecord::Base
 #    		all
 #    	end
 #    end
+
+    def self.search(search)
+              where('desc LIKE ?', "%#{search}%")
+         
+    end
     
     
     def thumbs_up_total

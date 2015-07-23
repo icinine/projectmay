@@ -10,46 +10,45 @@
     	</ul>
     	
     
-        <ul class='nav_ul_item'>
-            
-        	<li class="dropdown">
-                <%= link_to '#', class: 'btn btn-default btn-primary dropdown-toggle', 'data-toggle' => 'dropdown' do %>
-                    Agreements <b class="caret"></b>
-                <% end %>
-                <ul class="dropdown-menu">
-                   <%= AgreementType.all.each do |agreement_type| %>
-                   <li><%= link_to agreement_type.name, agreement_type_path(agreement_type) %></li>
-                   <% end %>
-                  <% if logged_in? %>
-              <li class="divider"></li>
-              <li>
-                <%= link_to(new_agreement_type_path) do %>
-                  New Agreement
-                <% end %> 
-              </li>
-              <% end %>
-                </ul>
-            </li>
+        <ul class="nav_ul_item">
+                <li class="dropdown">
+                <%= link_to "#", class: "btn btn-default border-blue dropdown-toggle", "data-toggle" => "dropdown" do %>
+                Agreement Types <b class="caret"></b>
+					<% end %>
+					<ul class="dropdown-menu">
+						<% AgreementType.all.each do |agreement_type| %>
+						<li><%= link_to agreement_type.name, agreement_type_path(agreement_type) %></li>
+						<% end %>
+						<% if logged_in? %>
+							<li class="divider"></li>
+							<li>
+								<%= link_to(new_agreement_type_path) do %>
+									New agreement_type
+								<% end %> 
+							</li>
+							<% end %>
+					</ul>
+				</li>
         </ul>
        
-         <ul class='nav_ul_item'>
-        	<li class="dropdown">
-            <%= link_to "#", class: "btn btn-default btn-primary border-blue dropdown-toggle", "data-toggle" => "dropdown" do %>
-                    Regions <b class="caret"></b>
-                <% end %>
+         <ul class="nav_ul_item">
+            <li class="dropdown">
+            <%= link_to "#", class: "btn btn-default border-blue dropdown-toggle", "data-toggle" => "dropdown" do %>
+            Regions <b class="caret"></b>
+            <% end %>
                 <ul class="dropdown-menu">
-                   <%= Region.all.each do |region| %>
-                   <li><%= link_to region.name, region_path(region) %></li>
-                   <% end %>
-                   <% if logged_in? %>
-              <li class="divider"></li>
-              <li>
+                <% Region.all.each do |region| %>
+                <li><%= link_to region.name, region_path(region) %></li>
+                <% end %>
+                <% if logged_in? %>
+                <li class="divider"></li>
+                <li>
                 <%= link_to(new_region_path) do %>
-                  New Region
+                New Region
                 <% end %> 
-              </li>
-              <% end %>
-                </ul>
+            </li>
+            <% end %>
+            </ul>
             </li>
         </ul>
         

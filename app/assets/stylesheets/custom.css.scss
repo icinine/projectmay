@@ -20,9 +20,13 @@ line-height:1;
 }
 
 h1{
-font-size: 3em;
-letter-spacing: -2px;
-margin-bottom: 30px;
+  font-family: "nta",Arial,sans-serif;
+  font-size: 36px;
+  line-height: 1.11111;
+  font-weight: 700;
+  text-transform: none;
+  margin-top: 1.04167em;
+  margin-bottom: .41667em;
 text-align: center;
 }
 
@@ -143,7 +147,7 @@ span.picture{
 
 .jumbotron {
     margin-top: 30px;
-    background: #fff url('/contract-details-on-the-go.jpg') no-repeat;
+    background: #fff url('/contract-details-on-the-go-doc-base.jpg') no-repeat;
     width:100%;
     height:320px;
     padding-top:60px;
@@ -174,12 +178,13 @@ span.picture{
 
 #inner_left h1 {
    
-	font-family: Helvetica;
-	font-size: 28px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: bold;
-	line-height: 18px;
+  font-family: "nta",Arial,sans-serif;
+  font-size: 36px;
+  line-height: 1.11111;
+  font-weight: 700;
+  text-transform: none;
+  margin-top: 1.04167em;
+  margin-bottom: .41667em;
 
 }
 
@@ -203,12 +208,13 @@ span.picture{
 }
 
 .foothead {
-    font-family: Helvetica;
-	font-size: 28px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: bold;
-	line-height: 18px;
+  font-family: "nta",Arial,sans-serif;
+  font-size: 36px;
+  line-height: 1.11111;
+  font-weight: 700;
+  text-transform: none;
+  margin-top: 1.04167em;
+  margin-bottom: .41667em;
 	color: #fff;
 }
 
@@ -231,8 +237,8 @@ span.picture{
     height: 240px;
     background: #ff9618;
     float: left;
-    margin-right: 1%;
-    margin-left: 1%;
+    margin-right: 2%;
+    margin-left:2%;
 }
 
 #inner3{
@@ -244,8 +250,26 @@ span.picture{
 }
 
 #inner1 h1, #inner2 h1, #inner3 h1{
-font-size: 5em;
+font-size: 3.5em;
 letter-spacing: -2px;
 text-align: center;
 color:#fff;
+}
+
+table th{
+font-family: "nta",Arial,sans-serif;
+  font-size: 36px;
+  line-height: 1.11111;
+  font-weight: 700;
+  text-transform: none;
+  margin-top: 1.04167em;
+  margin-bottom: .41667em;
+}
+
+.bluebar{
+    width: 100%;
+    height:130px;
+    background: #12b0c5;
+    margin-top:8px;
+    width: 100%;
 }

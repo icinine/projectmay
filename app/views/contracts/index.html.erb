@@ -1,5 +1,31 @@
 <%= render 'shared/page_title', title: 'All Contracts' %>
 
+<div class="row">
+  <h1>Search Contracts</h1>
+    <div class="pull-left">
+      <%= form_tag contracts_path, :method => 'get' do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :desc => nil %>
+      <% end %>
+    </div>
+</div>
+
+<hr/>
+
+ <% if logged_in? and current_user.admin?  %>
+
+<br>
+<div id="stat_wrap">
+    <div id="inner1"><h1>Total Savings: <br>&euro;<%= @savings %></h1></div>
+    <div id="inner2"><h1>Total Value:<br>&euro;<%= @value %></h1></div>
+    <div id="inner3"><h1>Total Contracts:<br><%= @concount %></h1></div>
+    
+</div>
+<h3>Value of Each Contract</h3>
+<%= bar_chart Contract.group(:desc).sum(:value) %>
+<br>
+<% end %>
+
 <ul class ="nav nav-tabs">
     <li class="active">
         <%= link_to 'Contracts', contracts_path %>
@@ -9,18 +35,6 @@
     </li>
     
 </ul>
-<hr/>
-
-
-<h3>Value of Each Contract</h3>
-<%= bar_chart Contract.group(:desc).sum(:value) %>
-<br>
-<div id="stat_wrap">
-    <div id="inner1"><h1>Total Savings: <br>&euro;<%= @savings %></h1></div>
-    <div id="inner2"><h1>Total Value:<br>&euro;<%= @value %></h1></div>
-    <div id="inner3"><%= pie_chart Contract.group(:value).count %></div>
-    
-</div>
 
 
 <h1>Contract Listing</h1>
@@ -73,6 +87,4 @@
     </div>
     <hr/>
 <% end %>
-
 <%= will_paginate %>
-

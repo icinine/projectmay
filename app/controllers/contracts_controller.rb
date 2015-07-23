@@ -8,14 +8,17 @@ class ContractsController < ApplicationController
     
     def index
         #@contracts = Contract.all.sort_by{like| like.thumbs_up_total}.reverse
-        @contracts = Contract.paginate(page: params[:page], per_page: 4)
-        #@searchy = Contract.searchy(params[:searchy])
+        @contracts = Contract.search(params[:search]).paginate(page: params[:page], per_page: 4)
+       
        #Calculate contract savings
         @savo = Contract.all
         @savings = @savo.sum(:saving)
         
     #Calculate value of contract on system
         @value = @savo.sum(:value)
+        
+    #Count number of contract on system
+        @concount = @contracts.count
         
         
     end
@@ -76,7 +79,7 @@ class ContractsController < ApplicationController
     private #private params for the create method
         
         def contract_params
-            params.require(:contract).permit(:desc, :value, :saving, :supplier_id, :contact, :dept_id, :download, :picture, :attachment, :dateFrom, :dateTo, agreement_type_ids: [], region_ids: [])
+            params.require(:contract).permit(:desc, :value, :saving, :supplier_id, :contact, :dept_id, :download, :picture, :attachment, :dateFrom, :dateTo, :search, agreement_type_ids: [], region_ids: [])
         end
     
         def set_contract

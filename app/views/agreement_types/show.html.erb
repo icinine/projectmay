@@ -1,4 +1,4 @@
-<%= render 'shared/page_title', title: "Contracts listed as: " + @agreement_type.name %>
+<%= render 'shared/page_title', title: "Contracts listed as: " + @agreement_types.name %>
 <ul class ="nav nav-tabs">
     <li class="active">
         <%= link_to 'Contracts', contracts_path %>
@@ -11,7 +11,7 @@
 <hr/>
 <%= will_paginate @contracts %>
 
-<% @agreement_type.contracts.each do |contract| %>
+<% @agreement_types.contracts.each do |contract| %>
     <div class = "row">
         <div class = "col-md-2">
             <section class="user_info center">

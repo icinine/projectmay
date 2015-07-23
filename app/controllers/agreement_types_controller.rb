@@ -2,7 +2,7 @@ class AgreementTypesController < ApplicationController
    before_action :require_user, except: [:show]
    
    def show
-      @agreement_type = AgreementType.find(params[:id])
+      @agreement_type = AgreementTypes.find(params[:id])
       @contracts = @agreement_type.contracts.paginate(page: params[:page], per_page: 4)
    end
    
@@ -22,7 +22,8 @@ class AgreementTypesController < ApplicationController
    end
    
    def show
-      
+       @agreement_types = AgreementType.find(params[:id]) 
+        @contracts = @agreement_types.contracts.paginate(page: params[:page], per_page: 4)
    end
    
     private

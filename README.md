@@ -13,10 +13,10 @@ Test Driven Development Notes
 
 > ## Testing Specs for Contracts
 >
-> Desc (description) must be present
-> Desc (description) must be betweeen 20 and 500 characters
-> name must be more than 5 characters
-> user_id must be present *(Foreign Key)*
+* Desc (description) must be present
+* Desc (description) must be betweeen 20 and 500 characters
+* name must be more than 5 characters
+* user_id must be present *(Foreign Key)*
 
 ### Gem Used
 * Carrierwave
