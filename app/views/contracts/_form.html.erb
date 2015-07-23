@@ -10,11 +10,15 @@
             <%= f.label :value %>
             <%= f.number_field :value, class: 'form-control' %>
             
-            
             <%= f.label :saving %>
             <%= f.number_field :saving, class: 'form-control' %>
-        
             
+            <%= f.label :dateFrom %>
+            <%= f.date_select :dateFrom %>
+            
+            <%= f.label :dateTo %>
+            <%= f.date_select :dateTo %>
+     
             <div class = 'form-group'>
                 <%= f.label :supplier, class: 'control-label' %>
                 <div class="form-control">
@@ -22,10 +26,7 @@
                 </div>
              </div>
             
-          
-          
-            
-             <div class = 'control-group'>
+           <div class = 'control-group'>
                 <%= f.label :dept, class: 'control-label' %>
                 <div class="form-control">
                     <%= collection_select( :contract, :dept_id, Dept.all, :id, :name, {}, { :multiple => false } ) %>
@@ -54,10 +55,6 @@
             <%= f.label :attachment %>
                <%= f.file_field :attachment, class: 'form-control' %>
   
-
-            
-       
-            
             <%= f.submit(@contract.new_record? ? 'Create Contract' : 'Edit Contract', class: 'btn btn-success') %>
         <% end %>
     </div>

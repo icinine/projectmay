@@ -76,7 +76,7 @@ class ContractsController < ApplicationController
     private #private params for the create method
         
         def contract_params
-            params.require(:contract).permit(:desc, :value, :saving, :supplier_id, :contact, :dept_id, :download, :picture, :attachment, agreement_type_ids: [], region_ids: [])
+            params.require(:contract).permit(:desc, :value, :saving, :supplier_id, :contact, :dept_id, :download, :picture, :attachment, :dateFrom, :dateTo, agreement_type_ids: [], region_ids: [])
         end
     
         def set_contract

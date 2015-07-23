@@ -21,46 +21,37 @@
             <%= image_tag(@contract.picture.url, class: "gravatar") if @contract.picture? %>
         </div>
         <div class="well">
-            <% if @contract.agreement_types.any? %>
-             <p><b>Agreement Type: </b><%= render @contract.agreement_types %></p>
-             <% end %>
-              <% if @contract.regions.any? %>
-            <p><b>Region(s): </b><%= render @contract.regions %></p>
+            <table class="table table-bordered table-striped" style="width:90%">
+              <thead>
+                <tr>
+                    <th>Contract Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> <% if @contract.agreement_types.any? %>
+                         <p><b>Agreement Type: </b><%= render @contract.agreement_types %></p>
+                         <% end %></td> </tr>
+                  <tr>  <td><% if @contract.regions.any? %>
+                        <p><b>Region(s): </b><%= render @contract.regions %></p>
+                        <% end %></td>    </tr> 
+                   <tr> <td><strong>Department:</strong> <%= @contract.dept.name %></td></tr>
+                   <tr> <td><strong>Contract Value: &euro;</strong><%= @contract.value %> </td></tr>
+                   <tr> <td><strong>Savings: &euro;</strong><%= @contract.saving %></td></tr>
+                   <tr> <td><strong>Date From:</strong><%= @contract.dateFrom %></td></tr>
+                   <tr> <td><strong>Date To:</strong><%= @contract.dateTo %></td></tr>
+                   <tr> <td><strong>Supplier:</strong><%= @contract.supplier.name %></td></tr>
+                </tr>
+            </tbody>
+            </table>
+            
+             <% if @contract.attachment_url !=nil %>
+                <strong>Download This Contract:</strong><br>
+                <%= link_to "Download Contract", @contract.attachment_url, class: 'btn btn-danger', target: "_blank" %>
             <% end %>
-            <p>
-             <strong>Department:</strong>
-            </p>
-            <%= @contract.dept.name %>
-            <p>
-     
-            <p>
-                <strong>Contract Value: &euro;</strong>
-            </p>
-            <%= @contract.value %>
-          
-            <p>
-             <strong>Savings: &euro;</strong>
-            </p>
-            
-            <%= @contract.saving %>
-            <p>
-                <strong>Supplier:</strong>
-            </p>
-            
-            <%= @contract.supplier.name %>
-            
-            <% if @contract.attachment_url !=nil %>
-            <p>
-                <strong>Download This Contract:</strong>
-            </p>
-            
-            <%= link_to "Download Contract", @contract.attachment_url, class: 'btn btn-danger', target: "_blank" %>
-           <% end %>
-           
            
             <div class="row">
           
-            
             <div class="pull-right">
             <h5>Was this information useful?</h5>     
                 <%= link_to like_contract_path(@contract, like: true), method: :post do %>
