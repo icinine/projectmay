@@ -41,7 +41,7 @@ def update
 end
 
 def show
-      @contracts = @user.contracts.paginate(page: params[:page], per_page: 3)
+      @contracts = @user.Contract.paginate(page: params[:page], per_page: 3)
 end
 
     def destroy
