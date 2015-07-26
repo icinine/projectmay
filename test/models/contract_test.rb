@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class RecipeTest < ActiveSupport::TestCase
+class ContractTest < ActiveSupport::TestCase
    
    def setup
        #User variable declared in test as each time a contract is created it is assigned to a User
