@@ -17,7 +17,7 @@ class ContractsController < ApplicationController
         @value = @savo.sum(:value)
         
     #Count number of contract on system
-        @concount = @contracts.count
+        @concount = @contracts.count(:all)
         
         
     end
