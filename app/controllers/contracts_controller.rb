@@ -7,7 +7,6 @@ class ContractsController < ApplicationController
     
     
     def index
-        #@contracts = Contract.all.sort_by{like| like.thumbs_up_total}.reverse
         @contracts = Contract.search(params[:search]).paginate(page: params[:page], per_page: 4)
        
        #Calculate contract savings
