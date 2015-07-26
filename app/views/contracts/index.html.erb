@@ -21,9 +21,7 @@
     <div id="inner3"><h1>Total Contracts:<br><%= @concount %></h1></div>
     
 </div>
-<h3>Value of Each Contract</h3>
-<%= bar_chart Contract.group(:desc).sum(:value) %>
-<br>
+
 <% end %>
 
 <ul class ="nav nav-tabs">
