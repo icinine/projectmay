@@ -14,7 +14,7 @@
         
     </div>
 </div>
-
+<%= bar_chart @contracts.group(:dept).sum(:value) %>
 
 <% @contracts.each do |contract| %>
 
