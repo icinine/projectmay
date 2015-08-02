@@ -60,9 +60,8 @@
                    <% end %>
                    <ul class="dropdown-menu">
                        
-        	    <li><%= link_to "New Department", new_dept_path, class: "btn btn-default" %>   	    </li>
-        	    <li><%= link_to "New Template", new_template_path, class: "btn btn-default" %>   	    </li>
-        	    <li><%= link_to "Template Index", templates_index_path, class: "btn btn-default" %>   	    </li>
+        	    <li><%= link_to "Manage Departments", depts_path, class: "btn btn-default" %>   	    </li>
+        	   
         	    <li><%= link_to "Manage Suppliers", suppliers_path, class: "btn btn-defaul" %></li>
         	    </ul>
         	    
@@ -83,6 +82,7 @@
                 <ul class="dropdown-menu">
                     <li><%= link_to 'View Profile', user_path(current_user) %>  </li>
                     <li><%= link_to 'Edit Profile', edit_user_path(current_user) %>  </li>
+                    <li><%= link_to "View Templates", templates_path %>   	    </li>
                     <li class="divider"></li>
                     <li><%= link_to 'Logout', logout_path %></li>
                 </ul>

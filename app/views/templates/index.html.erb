@@ -4,7 +4,9 @@
   </div>
 <% end %>
 <br />
+ <% if logged_in? && current_user.admin? %>
 <%= link_to "New Template", new_template_path, class: "btn btn-primary" %>
+<% end %>
 <br />
 <br />
 <table class="table table-bordered table-striped">
@@ -19,8 +21,10 @@
     <% @templates.each do |template| %>
       <tr>
         <td><%= template.name %></td>
-        <td><%= link_to "Download Template", template.attachment_url %></td>
+        <td><%= link_to "Download Template", template.template_url %></td>
+        <% if logged_in? && current_user.admin? %>
         <td><%= button_to "Delete",  template, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{template.name}?" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

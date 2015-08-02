@@ -25,6 +25,6 @@ class TemplatesController < ApplicationController
 
 private
   def template_params
-    params.require(:template).permit(:name, :attachment)
+    params.require(:template).permit(:name, :template)
   end
 end

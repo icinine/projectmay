@@ -2,12 +2,13 @@
 
 <div class="row">
     
-    <div class="col-md-4 pull-right center">
+    <div class="col-md-4 center">
+        <h2>About The Buyer</h2>
     <%= link_to gravatar_for(@contract.user, size: 200), user_path(@contract.user) %>
-    <p>
-        
-        <h5>Created by: <%= @contract.user.username %></h5>
-    </p>
+
+        <h5><b>Contact Name:</b></h5><h5><%= @contract.user.username %></h5>
+        <h5><b>Email Address:</b></h5><h5><%= mail_to @contract.user.email do %><%= @contract.user.email %><% end %>
+
     </div>
     <div class="col-md-8">
         <% if logged_in? and (@contract.user == current_user || current_user.admin?)  %>
@@ -28,20 +29,22 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td> <% if @contract.agreement_types.any? %>
-                         <p><b>Agreement Type: </b><%= render @contract.agreement_types %></p>
-                         <% end %></td> </tr>
-                  <tr>  <td><% if @contract.regions.any? %>
-                        <p><b>Region(s): </b><%= render @contract.regions %></p>
-                        <% end %></td>    </tr> 
-                   <tr> <td><strong>Department:</strong> <%= @contract.dept.name %></td></tr>
-                   <tr> <td><strong>Contract Value: &euro;</strong><%= @contract.value %> </td></tr>
-                   <tr> <td><strong>Savings: &euro;</strong><%= @contract.saving %></td></tr>
-                   <tr> <td><strong>Date From:</strong><%= @contract.dateFrom %></td></tr>
-                   <tr> <td><strong>Date To:</strong><%= @contract.dateTo %></td></tr>
-                   <tr> <td><strong>Supplier:</strong><%= @contract.supplier.name %></td></tr>
-                </tr>
+                 <tr> <td><strong>Description:</strong> <%= @contract.desc %></td></tr>
+                 <tr> <td> <% if @contract.agreement_types.any? %><p><b>Agreement Type: </b><%= render @contract.agreement_types %></p><% end %></td> </tr>
+                 <tr> <td> <% if @contract.regions.any? %><p><b>Region(s): </b><%= render @contract.regions %></p><% end %></td>    </tr> 
+                 <tr> <td><strong>Department:</strong> <%= @contract.dept.name %></td></tr>
+                 <tr> <td><strong>Supplier:</strong><%= @contract.supplier.name %></td></tr>
+                 <tr>
+                    <th>Financial Summary</th>
+                 </tr>
+                 <tr> <td><strong>Contract Value: &euro;</strong><%= @contract.value %> </td></tr>
+                 <tr> <td><strong>Savings: &euro;</strong><%= @contract.saving %></td></tr>
+                 <tr>
+                    <th>Validity Period</th>
+                 </tr>
+                 <tr> <td><strong>Date From:</strong><%= @contract.dateFrom.strftime("%m/%d/%Y") %></td></tr>
+                 <tr> <td><strong>Date To:</strong><%= @contract.dateTo.strftime("%m/%d/%Y") %></td></tr>
+                 </tr>
             </tbody>
             </table>
             

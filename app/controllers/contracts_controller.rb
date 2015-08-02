@@ -21,6 +21,9 @@ class ContractsController < ApplicationController
         @concount = @contracts.count(:all)
         
         
+
+        
+        
     end
 
     def show

@@ -1,6 +1,6 @@
-<h1>Listing depts</h1>
+<h1>Listing of Departments</h1>
 
-<table>
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -12,9 +12,9 @@
     <% @depts.each do |dept| %>
       <tr>
         <td><%= dept.name %></td>
-        <td><%= link_to 'Show', dept %></td>
-        <td><%= link_to 'Edit', edit_dept_path(dept) %></td>
-        <td><%= link_to 'Destroy', dept, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', dept, class: "btn btn-success" %></td>
+        <td><%= link_to 'Edit', edit_dept_path(dept), class: "btn btn-info" %></td>
+        <td><%= link_to 'Destroy', dept, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
