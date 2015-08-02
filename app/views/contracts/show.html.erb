@@ -30,6 +30,7 @@
             </thead>
             <tbody>
                  <tr> <td><strong>Description:</strong> <%= @contract.desc %></td></tr>
+                 <tr> <td><strong>Comment:</strong> <%= @contract.comment %></td></tr>
                  <tr> <td> <% if @contract.agreement_types.any? %><p><b>Agreement Type: </b><%= render @contract.agreement_types %></p><% end %></td> </tr>
                  <tr> <td> <% if @contract.regions.any? %><p><b>Region(s): </b><%= render @contract.regions %></p><% end %></td>    </tr> 
                  <tr> <td><strong>Department:</strong> <%= @contract.dept.name %></td></tr>
