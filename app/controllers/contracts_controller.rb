@@ -19,11 +19,6 @@ class ContractsController < ApplicationController
         
     #Count number of contract on system
         @concount = @contracts.count(:all)
-        
-        
-
-        
-        
     end
 
     def show

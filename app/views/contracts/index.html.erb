@@ -60,6 +60,7 @@
             <% if contract.regions.any? %>
             <p><b>Region(s): </b><%= render contract.regions %></p>
             <% end %>
+     
             <p>
                 <span class ='quiet'><small>created: <%= time_ago_in_words(contract.created_at) %> ago</small></span>&nbsp; | &nbsp;
                 <span class ='quiet'><small>updated: <%= time_ago_in_words(contract.updated_at) %> ago</small></span>

@@ -10,6 +10,8 @@ class DeptsController < ApplicationController
   # GET /depts/1
   # GET /depts/1.json
   def show
+    @dept = Dept.find(params[:id]) 
+        @contracts = @dept.contracts.paginate(page: params[:page], per_page: 4)
   end
 
   # GET /depts/new
