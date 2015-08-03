@@ -31,8 +31,8 @@
             <tbody>
                  <tr> <td><strong>Description:</strong> <%= @contract.desc %></td></tr>
                  <tr> <td><strong>Comment:</strong> <%= @contract.comment %></td></tr>
-                 <tr> <td> <% if @contract.agreement_types.any? %><p><b>Agreement Type: </b><%= render @contract.agreement_types %></p><% end %></td> </tr>
-                 <tr> <td> <% if @contract.regions.any? %><p><b>Region(s): </b><%= render @contract.regions %></p><% end %></td>    </tr> 
+                 <tr> <td> <% if @contract.agreement_types.any? %><b>Agreement Type: </b><%= render @contract.agreement_types %><% end %></td> </tr>
+                 <tr> <td> <% if @contract.regions.any? %><b>Region(s): </b><%= render @contract.regions %><% end %></td>    </tr> 
                  <tr> <td><strong>Department:</strong> <%= @contract.dept.name %></td></tr>
                  <tr> <td><strong>Supplier:</strong><%= @contract.supplier.name %></td></tr>
                  <tr>
@@ -57,7 +57,7 @@
             <div class="row">
           
             <div class="pull-right">
-            <h5>Was this information useful?</h5>     
+            <h5><b><i>Was this information useful?</i></b></h5>     
                 <%= link_to like_contract_path(@contract, like: true), method: :post do %>
                     <i class="glyphicon glyphicon glyphicon-ok"></i> &nbsp <%= @contract.thumbs_up_total %>
                     
