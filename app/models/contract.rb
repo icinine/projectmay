@@ -31,7 +31,9 @@ class Contract < ActiveRecord::Base
 #    end
 
     def self.search(search)
-              where('desc LIKE ?', "%#{search}%")
+              #where('desc LIKE ?', "%#{search}%")
+              #find(:all, :conditions => ['desc ILIKE ?', "%#{search}%"])
+              where("LOWER(desc) LIKE ?", "%#{search.downcase}%")
          
     end
     
