@@ -31,7 +31,7 @@ class Contract < ActiveRecord::Base
 #    end
 
     def self.search(search)
-              where('desc ILIKE ?', "%#{search}%")
+              where('desc LIKE ?', "%#{search}%")
          
     end
     
