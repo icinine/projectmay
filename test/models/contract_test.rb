@@ -5,7 +5,8 @@ class ContractTest < ActiveSupport::TestCase
    def setup
        #User variable declared in test as each time a contract is created it is assigned to a User
     @user = User.create(username:"bob", email:"bob@exampe.com")
-    @contract =@user.contracts.build(desc: "Mathadone", region: "National", value: 100000, saving: 15000, supplier: "Schein", contact:"Shane", dept: "MSP", download: "Yes")    
+    @contract =@user.contracts.build(desc: "Mathadone", region: "National", value: 100000, saving: 15000, 
+    supplier: "Schein", contact:"Shane", dept: "MSP", download: "Yes")    
    end
        
     test "desc should be valid" do

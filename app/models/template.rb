@@ -1,4 +1,4 @@
 class Template < ActiveRecord::Base
-    mount_uploader :template, TemplateUploader
+    mount_uploader :attachment, TemplateUploader
     validates :name, presence: true
 end
