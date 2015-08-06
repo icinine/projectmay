@@ -5,8 +5,9 @@
     <div class="col-md-4 col-md-offset-4 center">
         <%= gravatar_for @user, size: 200 %>
     <hr/>
+    <%= bar_chart Contract.group(:desc).sum(:value) %>
     </div>
-    
+ 
 </div>
 
 <div class="row">
@@ -17,9 +18,9 @@
     </div>
 </div>
 
-
+ 
 <% @contracts.each do |contract| %>
-
+  
 <div class="row">
     
 <div class = "col-lg-6 well col-lg-offset-3">

@@ -1,55 +1,29 @@
 Rails.application.routes.draw do
     
-    root 'pages#home'
-
-  get 'templates/index'
-
-  get 'templates/new'
-
-  get 'templates/create'
-
-  get 'templates/destroy'
-
-  get 'document/index'
-
-  get 'document/new'
-
-  get 'document/create'
-
-  get 'document/destroy'
-
-  resources :suppliers
-
-  resources :depts
-
-  resources :users, except: [:new]
+   root 'pages#home'
    
-  get '/register', to: 'users#new'
+   get '/login', to: "logins#new"
+   post '/login', to: "logins#create"
+   get '/logout', to: "logins#destroy"
+
+   get '/register', to: 'users#new'
    
    resources :agreement_types, only: [:new, :create, :show]
    resources :regions, only: [:new, :create, :show]
+   resources :documents, only: [:index, :new, :create, :destroy]
+   resources :templates, only: [:index, :new, :create, :destroy]
+   resources :suppliers
+   resources :depts
+   resources :users, except: [:new]
    
-    resources :contracts do
+   resources :contracts do
       member do
          post 'like'
       end
    end
    
-  Nciapp::Application.routes.draw do
-  get 'templates/index'
-
-  get 'templates/new'
-
-  get 'templates/create'
-
-  get 'templates/destroy'
-
-  resources :documents, only: [:index, :new, :create, :destroy]
- 
-end
-
-resources :templates, only: [:index, :new, :create, :destroy]
-   
+  
+  
    #get '/contracts', to: 'contracts#index'
    #get '/contracts/new', to: 'contracts#new', as: 'new_contract'
    ##post request used to submit new information to the database
@@ -61,12 +35,7 @@ resources :templates, only: [:index, :new, :create, :destroy]
    
    # While I could have simply used resources :contracts but for learning 
    # purposes I am completing as much of this project manually as possible.
-   
-  
-   
-   get '/login', to: "logins#new"
-   post '/login', to: "logins#create"
-   get '/logout', to: "logins#destroy"
+
    
    
 end

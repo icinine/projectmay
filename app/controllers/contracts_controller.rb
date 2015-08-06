@@ -8,11 +8,13 @@ class ContractsController < ApplicationController
     
     def index
       
-      #@contracts = Contract.search(params[:search]).paginate(page: params[:page], per_page: 4)
-       @contracts = Contract.paginate(page: params[:page], per_page: 4)
+      @contracts = Contract.search(params[:search]).paginate(page: params[:page], per_page: 4)
+       #@contracts = Contract.paginate(page: params[:page], per_page: 4)
        #Calculate contract savings
         @savo = Contract.all
         @savings = @savo.sum(:saving)
+        
+     
         
     #Calculate value of contract on system
         @value = @savo.sum(:value)

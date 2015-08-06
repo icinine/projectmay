@@ -22,7 +22,7 @@
      <% @templates.each do |template| %>
       <tr>
         <td><%= template.name %></td>
-        <td><%= link_to "Download Template", template.attachment_url %></td>
+        <td><%= link_to "View Template", template.attachment_url, target: "_blank" %></td>
         <td><%= button_to "Delete",  template, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{template.name}?" %></td>
       </tr>
     <% end %>

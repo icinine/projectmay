@@ -5,8 +5,10 @@
     <div class="pull-left">
       <%= form_tag contracts_path, :method => 'get' do %>
           <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "Search", :desc => nil %>
+          <%= submit_tag "Search", class: "btn btn-success", :desc => nil %>
       <% end %>
+      
+
     </div>
 </div>
 
@@ -18,12 +20,17 @@
 <div id="stat_wrap">
     <div id="inner1"><h1>Total Savings: <br>&euro;<%= @savings %></h1></div>
     <div id="inner2"><h1>Total Value:<br>&euro;<%= @value %></h1></div>
-    <div id="inner3"><h1>Total Contracts:<br><%= @concount %></h1></div>
+    <div id="inner3"><h1>Showing Contracts:<br><%= @concount %></h1></div>
     <br/>
     
 
 </div>
-<%= @wound %>
+
+<%= bar_chart Contract.group(:desc).sum(:value) %>
+
+
+
+
 <% end %>
 
 <ul class ="nav nav-tabs">
