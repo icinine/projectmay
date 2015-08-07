@@ -19,8 +19,10 @@
        <% end %>
         <h3>Title: <%= @contract.desc %></h3>
         <div class="show_contract">
+            <br/>
             <%= image_tag(@contract.picture.url, class: "gravatar") if @contract.picture? %>
         </div>
+        <br/>
         <div class="well">
             <table class="table table-bordered table-striped" style="width:90%">
               <thead>
