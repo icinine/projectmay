@@ -5,7 +5,6 @@ class ContractsController < ApplicationController
     before_action :require_same_user, only: [:edit, :update]
     before_action :admin_user, only: :destroy
     
-    
     def index
       
       @contracts = Contract.search(params[:search]).paginate(page: params[:page], per_page: 4)

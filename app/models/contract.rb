@@ -22,14 +22,6 @@ class Contract < ActiveRecord::Base
     
     
     
-#    def self.searchy(searchy)
-#     	if searchy       
-#    	where("desc like ?", "%#{searchy}%")
-#        else
-#    		all
-#    	end
-#    end
-
     def self.search(search)
               Contract.where('desc LIKE ?', "%#{search}%")
               #find(:all, :conditions => ['desc ILIKE ?', "%#{search}%"])
